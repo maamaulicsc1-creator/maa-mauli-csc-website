@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maa Mauli CSC Pangam — Professional Website</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    :root{--accent:#007bff;--accent2:#ff9800;--dark:#111;--muted:#555}
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',sans-serif;margin:0;color:var(--dark);background:#f8f9fb}
+    header{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:2px solid #fff}
+    .brand h1{font-size:20px;margin:0;color:#fff;text-shadow:1px 1px 3px rgba(0,0,0,0.3)}
+    nav a{margin-left:18px;text-decoration:none;color:#fff;font-weight:600;transition:0.3s}
+    nav a:hover{color:#000}
+
+    .hero{display:flex;gap:30px;align-items:center;padding:40px 0}
+    .hero .left{flex:1}
+    .hero h2{font-size:34px;margin:0 0 10px;color:var(--accent)}
+    .hero p{color:var(--muted);margin:0 0 18px;font-size:15px}
+    .btn{display:inline-block;padding:12px 18px;background:var(--accent2);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;transition:0.3s}
+    .btn:hover{background:var(--accent)}
+
+    .profile-photo{width:320px;height:420px;border-radius:14px;overflow:hidden;flex-shrink:0;background:#ddd;box-shadow:0 8px 30px rgba(11,118,239,0.12)}
+    .profile-photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:28px}
+    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 24px rgba(17,17,17,0.05);transition:0.3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 10px 28px rgba(17,17,17,0.1)}
+    .card h3{margin:0 0 8px;color:var(--accent)}
+    .card p{margin:0;color:var(--muted)}
+
+    footer{padding:30px 0;margin-top:40px;color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .contact{display:flex;gap:18px;flex-wrap:wrap}
+    .contact a{display:inline-block;padding:10px 14px;background:#fff;border-radius:10px;text-decoration:none;color:var(--dark);box-shadow:0 6px 18px rgba(17,17,17,0.04);transition:0.3s}
+    .contact a:hover{background:var(--accent2);color:#fff}
+
+    @media(max-width:820px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .profile-photo{width:100%;height:320px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="photo.jpg" alt="Shop photo" />
+        <div>
+          <h1>Maa Mauli CSC Pangam</h1>
+          <div style="color:#fff;font-size:13px">Sab kam hota hai — CSC & Services</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+    <section class="hero">
+      <div class="left">
+        <h2>Professional CSC Services — Maa Mauli CSC Pangam</h2>
+        <p>Reliable CSC, form filling, printing, Aadhaar, PAN, government services, typing aur bahut kuch. Hum local community ke liye fast aur sasta service dete hain.</p>
+        <a class="btn" href="#contact">📞 Call Now — 9348643243</a>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Government Services</h3>
+            <p>Aadhaar, PAN, certificate, Udyam registration, aur forms.</p>
+          </div>
+          <div class="card">
+            <h3>Printing & Scanning</h3>
+            <p>High quality prints, lamination, passport-size photos.</p>
+          </div>
+          <div class="card">
+            <h3>Digital Services</h3>
+            <p>Online form filling, digital payments setup, photocopy & typing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-photo">
+        <img src="photo.jpg" alt="Owner photo" />
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 style="color:var(--accent2)">Services</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px">
+        <div style="background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(17,17,17,0.04)">
+          <h3 style="color:var(--accent)">1. Aadhaar & PAN Assistance</h3>
+          <p style="color:var(--muted)">Enrollment help, corrections, printouts aur documents submit karna.</p>
+        </div>
+        <div style="background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(17,17,17,0.04)">
+          <h3 style="color:var(--accent)">2. Printing / Lamination</h3>
+          <p style="color:var(--muted)">Color prints, black & white, ID photos, lamination services.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="margin-top:28px">
+      <h2 style="color:var(--accent2)">Gallery</h2>
+      <p style="color:var(--muted);margin-top:6px">Sample photos / shop images. (Photo shown above is used as hero image)</p>
+    </section>
+
+    <section id="contact" style="margin-top:28px">
+      <h2 style="color:var(--accent2)">Contact</h2>
+      <p style="color:var(--muted)">Aap seedha call kar sakte hain — phone ya WhatsApp pe.</p>
+
+      <div class="contact" style="margin-top:10px">
+        <a href="tel:+919348643243">📞 9348643243</a>
+        <a href="tel:+918984494894">📞 8984494894</a>
+        <a href="https://wa.me/919348643243" target="_blank">💬 WhatsApp 9348643243</a>
+      </div>
+
+      <div style="margin-top:18px;background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(17,17,17,0.04)">
+        <strong style="color:var(--accent)">Address:</strong> Maa Mauli CSC Centre, Pangam, Malkangiri District, Odisha — 764087<br/>
+        <strong style="color:var(--accent)">Hours:</strong> Mon–Sat 9:00 AM – 7:00 PM
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>© <strong>Maa Mauli CSC Pangam</strong> — All rights reserved</div>
+        <div style="font-size:13px">Designed for small businesses • Colorful Pro Look</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
