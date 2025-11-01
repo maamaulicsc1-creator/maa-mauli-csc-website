@@ -3,205 +3,223 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Maa Mauli CSC Centre Pangam — Modern Redesign</title>
-  <meta name="description" content="Maa Mauli CSC Centre — Digital India services: Aadhaar, PAN, form filling, printing, lamination and more. Fast, reliable and local." />
+  <title>Maa Mauli CSC Centre — Pangam</title>
+  <meta name="description" content="Maa Mauli CSC Centre — Aadhaar, PAN, printing, lamination & trusted digital services in Pangam." />
   <meta name="theme-color" content="#0f172a">
   <style>
     :root{
-      --bg:#f7fbff; --card:#ffffff; --muted:#6b7280; --brand:#0ea5a4; --accent:#0b84ff; --glass:rgba(255,255,255,0.6);
-      --radius:14px; --shadow:0 6px 20px rgba(2,6,23,0.08);
+      --bg:#f7fbff; --card:#ffffff; --muted:#64748b; --brand:#06b6d4; --accent:#0b84ff;
+      --radius:12px; --shadow:0 8px 30px rgba(2,6,23,0.08);
+      --glass: rgba(255,255,255,0.6);
     }
-    [data-theme="dark"]{ --bg:#071025; --card:#071428; --muted:#94a3b8; --brand:#06b6d4; --accent:#3aa0ff; --glass:rgba(255,255,255,0.04); --shadow:0 6px 24px rgba(2,6,23,0.6); }
+    [data-theme="dark"]{
+      --bg:#071025; --card:#071428; --muted:#94a3b8; --brand:#06b6d4; --accent:#3aa0ff; --glass: rgba(255,255,255,0.04);
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:linear-gradient(180deg,var(--bg),#ffffff); color: #0b1220; transition:background .3s,color .3s;}
-    header{backdrop-filter:blur(6px); background:var(--glass); position:sticky; top:0; z-index:40; border-bottom:1px solid rgba(0,0,0,0.04)}
-    .container{max-width:1100px;margin:0 auto;padding:18px}
-    .nav{display:flex;align-items:center;gap:18px}
-    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
-    .logo .mark{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--accent));color:white;font-weight:700}
-    nav{margin-left:auto;display:flex;gap:12px}
-    a.btn{padding:10px 16px;border-radius:10px;text-decoration:none;background:var(--brand);color:white;font-weight:600;box-shadow:var(--shadow)}
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:48px 0}
-    .hero h1{font-size:28px;margin:0 0 8px}
-    .sub{color:var(--muted);margin-bottom:18px}
-    .hero .cta{display:flex;gap:12px}
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}
-    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:var(--shadow);border:1px solid rgba(10,12,20,0.02);transition:transform .18s}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,Roboto,Arial; background:var(--bg); color:#061226;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      transition:background .25s, color .25s;
+    }
+
+    /* Background hero with light blur */
+    .hero-wrap{
+      position:relative;
+      padding:36px 0 48px;
+      overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute; inset:0; z-index:0;
+      background-image: url('1562.jpg');
+      background-size:cover; background-position:center;
+      filter: blur(6px) saturate(.98) brightness(.85); /* light blur */
+      transform: scale(1.03);
+    }
+    .hero-bg::after{
+      content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,16,36,0.18), rgba(255,255,255,0.06));
+    }
+
+    /* Header */
+    header{position:sticky; top:0; z-index:40; backdrop-filter: blur(6px); background:var(--glass); border-bottom:1px solid rgba(0,0,0,0.06)}
+    .container{max-width:1100px;margin:0 auto;padding:16px}
+    .nav{display:flex;align-items:center;gap:14px}
+    .logo-wrap{display:flex;align-items:center;gap:12px}
+    .logo-img{width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 6px 20px rgba(2,6,23,0.18);border:3px solid rgba(255,255,255,0.06)}
+    .brand-title{font-weight:700;font-size:15px}
+    .brand-sub{font-size:12px;color:var(--muted)}
+
+    nav{margin-left:auto;display:flex;gap:10px;align-items:center}
+    nav a{color:inherit;text-decoration:none;padding:8px 10px;border-radius:8px}
+    nav a.btn{background:var(--brand);color:white;font-weight:600;box-shadow:var(--shadow);padding:9px 14px}
+    .theme-btn{padding:7px 10px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);background:transparent;cursor:pointer}
+
+    /* Hero grid */
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;max-width:1100px;margin:0 auto;padding:48px 16px;}
+    .hero-content h1{font-size:28px;margin:0 0 10px}
+    .hero-sub{color:var(--muted);margin-bottom:16px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .cta a{display:inline-flex;align-items:center;gap:8px}
+
+    /* Right side profile card */
+    .side-card{background:rgba(255,255,255,0.85);border-radius:12px;padding:12px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.04)}
+    [data-theme="dark"] .side-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03)}
+
+    .side-photo{width:100%;height:260px;border-radius:10px;object-fit:cover;display:block}
+    .side-info{margin-top:10px}
+
+    /* small round profile highlight under logo */
+    .logo-profile{
+      position:relative;margin-left:8px;margin-top:6px;
+    }
+    .logo-profile img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:3px solid white;box-shadow:0 6px 20px rgba(2,6,23,0.18)}
+    [data-theme="dark"] .logo-profile img{border-color:rgba(0,0,0,0.12)}
+
+    /* services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 16px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(10,12,20,0.02);transition:transform .18s}
     .card:hover{transform:translateY(-6px)}
-    .card .icon{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(11,132,255,0.12),rgba(10,165,164,0.09))}
-    .about{display:flex;gap:18px;align-items:center;margin:28px 0}
-    .about img{width:160px;height:160px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow)}
-    .contact{display:grid;grid-template-columns:1fr 420px;gap:18px;margin:28px 0}
-    form{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
-    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
-    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-bottom:12px;background:transparent}
-    button.primary{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;border:none;font-weight:600}
-    footer{padding:24px 0;color:var(--muted);border-top:1px solid rgba(0,0,0,0.04);margin-top:36px}
-    .grid-full{display:grid;gap:12px}
-    .top-line{display:flex;align-items:center;gap:12px}
-    .phone{font-weight:700}
+    .card .row{display:flex;gap:12px;align-items:center}
+
+    /* contact area */
+    .contact-wrap{display:grid;grid-template-columns:1fr 420px;gap:18px;margin:22px 16px}
+    form{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(10,12,20,0.02)}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-bottom:10px;background:transparent}
+    button.primary{background:linear-gradient(90deg,var(--brand),var(--accent));color:white;padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+
+    footer{padding:20px 16px;color:var(--muted);margin-top:28px;border-top:1px solid rgba(0,0,0,0.04)}
+
     /* responsive */
-    @media (max-width:920px){.hero{grid-template-columns:1fr} .contact{grid-template-columns:1fr} .services{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:560px){.services{grid-template-columns:1fr} .logo .text{display:none} .hero{padding:24px 0}}
-    /* small flourishes */
-    .chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(11,132,255,0.08);font-weight:600}
-    .muted{color:var(--muted)}
-    .map{border-radius:12px;overflow:hidden;height:100%;min-height:220px}
-    .dark-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);background:transparent}
+    @media (max-width:980px){ .hero-grid{grid-template-columns:1fr 320px} .services{grid-template-columns:repeat(2,1fr)} .contact-wrap{grid-template-columns:1fr} }
+    @media (max-width:620px){ .hero-grid{grid-template-columns:1fr} .side-photo{height:200px} .services{grid-template-columns:1fr} .logo-img{width:48px;height:48px} }
+
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <div class="mark">M</div>
-        <div class="text">
-          <div style="font-size:15px">Maa Mauli CSC</div>
-          <div style="font-size:12px;color:var(--muted)">Pangam — Trusted Digital Services</div>
-        </div>
-      </div>
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <button id="themeBtn" class="dark-toggle" title="Toggle dark mode">🌙 <span style="font-size:13px">Dark</span></button>
-        <a class="btn" href="tel:+919348643243">Call Now</a>
-      </nav>
-    </div>
-  </header>
+  <div class="hero-wrap" role="main" aria-label="Hero">
+    <div class="hero-bg" aria-hidden="true"></div>
 
-  <main class="container" id="home">
-    <section class="hero">
-      <div>
-        <div class="chip">Digital India • CSC</div>
-        <h1>Welcome to Maa Mauli CSC Centre, Pangam</h1>
-        <p class="sub">Fast, reliable and local assistance for Aadhaar, PAN, form filling, printing, lamination and other government & digital services.</p>
-        <div class="cta">
+    <header class="container" style="position:relative;z-index:10">
+      <div class="nav">
+        <div class="logo-wrap">
+          <!-- Logo image (NEW.jpg) -->
+          <img src="NEW.jpg" alt="Maa Mauli CSC Logo" class="logo-img">
+          <div>
+            <div class="brand-title">Maa Mauli CSC</div>
+            <div class="brand-sub">Pangam — Trusted Digital Services</div>
+          </div>
+          <!-- small profile highlight (9248...) under/near logo -->
+          <div class="logo-profile" title="Owner">
+            <img src="9248-Picsart-AiImageEnhancer.jpg" alt="Profile highlight">
+          </div>
+        </div>
+
+        <nav aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <button id="themeBtn" class="theme-btn" title="Toggle dark mode">🌙</button>
+          <a class="btn" href="tel:+919348643243">Call Now</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="home" class="hero-grid">
+      <div class="hero-content">
+        <div class="chip" style="display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(6,182,212,0.12);font-weight:700;color:var(--brand)">Digital India • CSC</div>
+        <h1 style="margin-top:12px">Welcome to Maa Mauli CSC Centre, Pangam</h1>
+        <p class="hero-sub">Fast, reliable and local assistance for Aadhaar, PAN, form filling, printing, lamination and other digital & government services.</p>
+
+        <div class="cta" style="margin-bottom:14px">
           <a class="btn" href="tel:+919348643243">📞 Call Now</a>
-          <a class="btn" href="#contact" style="background:var(--brand);">✉️ Message</a>
+          <a class="btn" href="#contact" style="background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--brand)">✉️ Message</a>
         </div>
 
-        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-          <div style="display:flex;gap:8px;align-items:center"><strong class="phone">9348643243</strong><span class="muted">(Mon–Sat 9am–7pm)</span></div>
-          <div class="muted">• Services available at shop or on‑site (by appointment)</div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted)">
+          <strong style="font-weight:700">9348643243</strong>
+          <span>• Mon–Sat 9:00 — 19:00</span>
+          <span style="margin-left:6px">• Onsite & doorstep assistance available</span>
+        </div>
+
+        <!-- small services preview -->
+        <div style="margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+          <div style="background:rgba(255,255,255,0.7);padding:8px;border-radius:10px;font-weight:700;text-align:center">Aadhaar</div>
+          <div style="background:rgba(255,255,255,0.7);padding:8px;border-radius:10px;font-weight:700;text-align:center">PAN</div>
+          <div style="background:rgba(255,255,255,0.7);padding:8px;border-radius:10px;font-weight:700;text-align:center">Printing</div>
         </div>
       </div>
 
-      <aside style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
-        <div style="width:100%;">
-          <div class="card" style="text-align:center;">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=520&q=60" alt="shop" style="width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:12px">
-            <div style="font-weight:700">Visit our centre</div>
-            <div class="muted" style="font-size:13px">Fast processing • Trusted staff</div>
+      <!-- Right side card with clear photo (1563.jpg) -->
+      <aside style="display:flex;flex-direction:column;gap:12px;align-items:stretch;z-index:6">
+        <div class="side-card" style="text-align:center;">
+          <img src="1563.jpg" alt="Owner / Staff" class="side-photo">
+          <div class="side-info" style="text-align:left">
+            <div style="font-weight:800">Visit Our Centre</div>
+            <div style="color:var(--muted);font-size:13px;margin-top:6px">Trusted staff • Fast processing • Transparent pricing</div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <a class="btn" href="tel:+919348643243" style="flex:1;text-align:center">Call</a>
+              <a class="btn" href="https://wa.me/919348643243" style="background:#25d366">WhatsApp</a>
+            </div>
           </div>
         </div>
-        <div style="width:100%">
-          <div class="card" style="display:flex;gap:12px;align-items:center">
-            <div style="flex:1">
-              <div style="font-weight:700">Opening Hours</div>
-              <div class="muted" style="font-size:13px">Mon–Sat 9:00 — 19:00</div>
-            </div>
-            <div style="font-size:28px">🕒</div>
+
+        <div class="side-card" style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-weight:700">Opening Hours</div>
+            <div style="color:var(--muted);font-size:13px">Mon–Sat • 09:00 — 19:00</div>
           </div>
+          <div style="font-size:26px">🕒</div>
         </div>
       </aside>
     </section>
+  </div>
 
-    <section id="services">
-      <h2 style="margin:0 0 12px">Our Services</h2>
-      <div class="services">
-        <div class="card">
-          <div style="display:flex;gap:12px;align-items:center">
-            <div class="icon">📇</div>
-            <div>
-              <div style="font-weight:700">Aadhaar Enrollment & Update</div>
-              <div class="muted" style="font-size:13px">New enrollment • demographic/biometric update</div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div style="display:flex;gap:12px;align-items:center">
-            <div class="icon">🧾</div>
-            <div>
-              <div style="font-weight:700">PAN & Form Filling</div>
-              <div class="muted" style="font-size:13px">PAN application, form submissions, guidance</div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div style="display:flex;gap:12px;align-items:center">
-            <div class="icon">🖨️</div>
-            <div>
-              <div style="font-weight:700">Printing & Scanning</div>
-              <div class="muted" style="font-size:13px">High quality prints, scanning & photocopy</div>
-            </div>
-          </div>
-        </div>
+  <!-- Services -->
+  <section id="services" style="max-width:1100px;margin:0 auto;padding:10px 16px 0 16px;">
+    <h2 style="margin:12px 0 8px">Our Services</h2>
+    <div class="services">
+      <div class="card"><div class="row"><div style="font-size:22px">📇</div><div style="margin-left:8px"><strong>Aadhaar Enrollment & Update</strong><div style="color:var(--muted);font-size:13px">Enrollment • Demographic & biometric updates</div></div></div></div>
+      <div class="card"><div class="row"><div style="font-size:22px">🧾</div><div style="margin-left:8px"><strong>PAN & Form Filling</strong><div style="color:var(--muted);font-size:13px">PAN application & other forms</div></div></div></div>
+      <div class="card"><div class="row"><div style="font-size:22px">🖨️</div><div style="margin-left:8px"><strong>Printing & Scanning</strong><div style="color:var(--muted);font-size:13px">Photo prints, scanning, photocopy</div></div></div></div>
+      <div class="card"><div class="row"><div style="font-size:22px">🔒</div><div style="margin-left:8px"><strong>Lamination & Documents</strong><div style="color:var(--muted);font-size:13px">Certificates & IDs protection</div></div></div></div>
+      <div class="card"><div class="row"><div style="font-size:22px">💳</div><div style="margin-left:8px"><strong>Digital Payments</strong><div style="color:var(--muted);font-size:13px">UPI, card payments, e-receipts</div></div></div></div>
+      <div class="card"><div class="row"><div style="font-size:22px">🧰</div><div style="margin-left:8px"><strong>Assisted Services</strong><div style="color:var(--muted);font-size:13px">Help with government processes</div></div></div></div>
+    </div>
+  </section>
 
-        <div class="card">
-          <div style="display:flex;gap:12px;align-items:center">
-            <div class="icon">🔒</div>
-            <div>
-              <div style="font-weight:700">Lamination & Documents</div>
-              <div class="muted" style="font-size:13px">ID lamination, certificates protection</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="display:flex;gap:12px;align-items:center">
-            <div class="icon">💳</div>
-            <div>
-              <div style="font-weight:700">Digital Payments</div>
-              <div class="muted" style="font-size:13px">UPI, card payments, e‑receipts</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="display:flex;gap:12px;align-items:center">
-            <div class="icon">🧰</div>
-            <div>
-              <div style="font-weight:700">Assisted Services</div>
-              <div class="muted" style="font-size:13px">Help with government forms, applications</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="about">
-      <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=600&q=60" alt="owner photo">
+  <!-- About & Contact -->
+  <section id="about" style="max-width:1100px;margin:18px auto;padding:0 16px;">
+    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+      <img src="1563.jpg" alt="Owner" style="width:140px;height:140px;border-radius:10px;object-fit:cover;box-shadow:var(--shadow)">
       <div>
-        <h3>About Maa Mauli CSC Centre</h3>
-        <p class="muted">Maa Mauli CSC Centre in Pangam provides citizen facilitation services for digital India programs with honesty and speed. Our trained staff helps individuals and small businesses complete government processes smoothly.</p>
-        <p style="margin-top:10px"><strong>Why choose us?</strong></p>
-        <ul class="muted">
-          <li>Trusted and experienced local staff</li>
-          <li>Fast turnaround & transparent pricing</li>
-          <li>On‑site help and doorstep assistance (on request)</li>
+        <h3 style="margin:0 0 6px">About Maa Mauli CSC Centre</h3>
+        <p style="margin:0;color:var(--muted)">Maa Mauli CSC Centre in Pangam helps citizens with digital government services — Aadhaar, PAN, form submissions, printing and more. Trusted, honest and quick service for individuals & small businesses.</p>
+        <ul style="color:var(--muted);margin-top:8px">
+          <li>Experienced local staff</li>
+          <li>Fast turnaround & clear pricing</li>
+          <li>Onsite & doorstep support available</li>
         </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" class="contact">
+  <section id="contact" style="max-width:1100px;margin:18px auto;padding:0 16px 28px 16px;">
+    <div class="contact-wrap">
       <div>
-        <h3>Contact & Location</h3>
-        <div class="grid-full">
+        <h3 style="margin-top:0">Contact & Location</h3>
+        <div style="display:flex;gap:12px;flex-direction:column">
           <div class="card" style="display:flex;gap:12px;align-items:center">
-            <div style="font-size:22px">📍</div>
-            <div>
-              <div style="font-weight:700">Pangam – Maa Mauli CSC</div>
-              <div class="muted">For exact location, tap the map or call us.</div>
-            </div>
+            <div style="font-size:20px">📍</div>
+            <div><strong>Pangam — Maa Mauli CSC</strong><div style="color:var(--muted);font-size:13px">Tap map for approximate location</div></div>
           </div>
 
           <div class="card" style="padding:0;overflow:hidden">
-            <iframe class="map" src="https://www.google.com/maps?q=Pangam+India&output=embed" style="border:0;width:100%;height:280px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="map" src="https://www.google.com/maps?q=Pangam+India&output=embed" style="border:0;width:100%;height:220px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
 
-          <div style="display:flex;gap:12px">
+          <div style="display:flex;gap:10px">
             <a class="btn" href="tel:+919348643243">Call Us</a>
             <a class="btn" href="https://wa.me/919348643243" style="background:#25d366">WhatsApp</a>
           </div>
@@ -211,54 +229,62 @@
       <aside>
         <form id="contactForm" autocomplete="off">
           <label for="name">Name</label>
-          <input id="name" name="name" required placeholder="Your name" />
+          <input id="name" name="name" required placeholder="Your name">
           <label for="phone">Phone</label>
-          <input id="phone" name="phone" required placeholder="Mobile number" />
+          <input id="phone" name="phone" required placeholder="Mobile number">
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
           <button type="submit" class="primary">Send Message</button>
-          <div id="formMsg" class="muted" style="margin-top:8px;font-size:13px"></div>
+          <div id="formMsg" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
         </form>
       </aside>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>© 2025 Maa Mauli CSC Centre — Pangam</div>
-        <div class="muted">Developed by Maa Mauli | <a href="#" style="color:var(--accent);text-decoration:none">Privacy</a></div>
-      </div>
-    </footer>
-  </main>
+  <footer style="background:transparent">
+    <div style="max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>© 2025 Maa Mauli CSC Centre — Pangam</div>
+      <div style="color:var(--muted)">Developed by Maa Mauli | <a href="#" style="color:var(--accent);text-decoration:none">Privacy</a></div>
+    </div>
+  </footer>
 
   <script>
     // Dark mode toggle + persist
     const themeBtn = document.getElementById('themeBtn');
-    const root = document.documentElement;
-    function setTheme(t){ if(t==='dark'){document.documentElement.setAttribute('data-theme','dark'); themeBtn.innerHTML='☀️ <span style="font-size:13px">Light</span>'} else {document.documentElement.removeAttribute('data-theme'); themeBtn.innerHTML='🌙 <span style="font-size:13px">Dark</span>'} localStorage.setItem('mm_theme',t)}
+    function setTheme(t){
+      if(t==='dark'){
+        document.documentElement.setAttribute('data-theme','dark');
+        themeBtn.textContent = '☀️';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeBtn.textContent = '🌙';
+      }
+      localStorage.setItem('mm_theme', t);
+    }
     const saved = localStorage.getItem('mm_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
     setTheme(saved);
-    themeBtn.addEventListener('click',()=> setTheme(document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark'));
+    themeBtn.addEventListener('click', ()=> setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
 
-    // Simple contact form handler (demo) — replace with server endpoint if available
+    // Contact form — opens mail client (mailto) with provided details
     const form = document.getElementById('contactForm');
     const formMsg = document.getElementById('formMsg');
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
-      const data = {name:form.name.value, phone:form.phone.value, message:form.message.value};
-      // minimal validation
-      if(!data.name||!data.phone||!data.message){ formMsg.textContent='Please fill all fields'; return }
-      // For demo: open mail client fallback
-      const subject = encodeURIComponent('Maa Mauli CSC — Contact from '+data.name);
+      const data = {name:form.name.value.trim(), phone:form.phone.value.trim(), message:form.message.value.trim()};
+      if(!data.name || !data.phone || !data.message){ formMsg.textContent = 'Please fill all fields'; return }
+      const subject = encodeURIComponent('Maa Mauli CSC — Contact from ' + data.name);
       const body = encodeURIComponent(`Name: ${data.name}\nPhone: ${data.phone}\nMessage: ${data.message}`);
-      window.location.href = `mailto:maamaulicsc@example.com?subject=${subject}&body=${body}`;
-      formMsg.textContent='Opening your mail app to send message — or call us directly.';
-      setTimeout(()=>{form.reset();},1200);
+      // Opens user's mail client to send email to your address
+      window.location.href = `mailto:maamaulicsc1@gmail.com?subject=${subject}&body=${body}`;
+      formMsg.textContent = 'Opening your mail app to send message — or call us directly.';
+      setTimeout(()=> form.reset(), 1200);
     });
 
-    // Small accessibility: keyboard nav
+    // Small accessibility helper
     document.addEventListener('keydown', (e)=>{
-      if(e.key==='/' && document.activeElement.tagName!=='INPUT' && document.activeElement.tagName!=='TEXTAREA'){
-        e.preventDefault(); document.getElementById('name').focus();
+      if(e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA'){
+        e.preventDefault();
+        document.getElementById('name').focus();
       }
     });
   </script>
