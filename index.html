@@ -1,210 +1,237 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maa Mauli CSC Pangam</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maa Mauli CSC Pangam — Professional Website</title>
+
+  <!-- Google Fonts + Animate.css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; background: #f5f8ff; color: #222; }
-
-    header {
-      background: #0a66c2;
-      color: white;
-      padding: 15px 0;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    :root{
+      --bg: #f8f9fb;
+      --card: #fff;
+      --text: #111;
+      --muted: #555;
+      --accent: #007bff;
+      --accent2: #ff9800;
+      --wh-bg: #25D366;
+    }
+    [data-theme="dark"]{
+      --bg: #0f1720;
+      --card: #0b1220;
+      --text: #e6eef8;
+      --muted: #9fb2c9;
+      --accent: #3aa0ff;
+      --accent2: #ffaa44;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      background: #084d96;
-      padding: 10px;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover {
-      text-decoration: underline;
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',sans-serif;margin:0;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+
+    header{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:2px solid #fff}
+    .brand h1{font-size:20px;margin:0;color:#fff}
+    nav a{margin-left:14px;text-decoration:none;color:#fff;font-weight:600}
+
+    /* top controls */
+    .top-controls{display:flex;gap:10px;align-items:center}
+    .mode-btn{
+      background:rgba(255,255,255,0.12);
+      color:#fff;padding:8px 10px;border-radius:8px;border:none;cursor:pointer;font-weight:600
     }
 
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+    /* hero */
+    .hero{display:flex;gap:30px;align-items:center;padding:36px 0;flex-wrap:wrap}
+    .hero-left{flex:1}
+    .hero h2{font-size:32px;margin:0 0 8px;color:var(--accent)}
+    .hero p{color:var(--muted);margin:0 0 14px}
+    .btn{display:inline-block;padding:10px 16px;background:var(--accent2);color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
 
-    h2 {
-      color: #0a66c2;
-      text-align: center;
-      margin-bottom: 20px;
+    /* slideshow / photo */
+    .profile-photo{
+      width:320px;height:420px;border-radius:14px;overflow:hidden;flex-shrink:0;background:var(--card);
+      box-shadow:0 10px 30px rgba(2,6,23,0.08);position:relative;
     }
+    .profile-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 10s linear}
 
-    .about, .services, .contact {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+    /* cards */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:20px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04)}
+    .card h3{margin:0 0 8px;color:var(--accent)}
+    .card p{margin:0;color:var(--muted)}
 
-    ul { list-style: none; padding-left: 0; }
-    li { padding: 8px 0; font-weight: 500; }
+    /* contact form */
+    .contact-wrap{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px}
+    form{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04);min-width:280px;flex:1;max-width:520px}
+    label{font-size:13px;color:var(--muted)}
+    input,textarea{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:transparent;color:var(--text)}
+    button{background:var(--accent2);border:none;padding:10px 14px;border-radius:8px;color:#fff;font-weight:700;cursor:pointer}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+    /* floating WhatsApp button */
+    .whatsapp-btn{
+      position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;
+      background:var(--wh-bg);box-shadow:0 10px 30px rgba(37,211,102,0.18);display:flex;align-items:center;justify-content:center;color:#fff;
+      z-index:9999;font-size:22px;text-decoration:none
     }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+    .whatsapp-btn:hover{transform:translateY(-4px)}
 
-    footer {
-      background: #0a66c2;
-      color: white;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 0.9em;
-      margin-top: 40px;
-    }
-    footer a {
-      color: #fff;
-      text-decoration: underline;
-    }
+    footer{padding:18px 0;margin-top:34px;text-align:center;color:var(--muted)}
 
-    /* Floating WhatsApp button */
-    .whatsapp-float {
-      position: fixed;
-      width: 55px;
-      height: 55px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: #fff;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 3px #999;
-      z-index: 100;
-      transition: transform 0.3s ease;
+    @media(max-width:880px){
+      .profile-photo{width:100%;height:280px}
+      .hero h2{font-size:24px}
+      .contact-wrap{flex-direction:column}
     }
-    .whatsapp-float:hover { transform: scale(1.1); }
-
-    .whatsapp-float i {
-      margin-top: 12px;
-    }
-
-    /* Animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
   </style>
-  <script>
-    // Scroll animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const faders = document.querySelectorAll('.fade-in');
-      const appearOptions = { threshold: 0.2 };
-      const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        });
-      }, appearOptions);
-      faders.forEach(fader => appearOnScroll.observe(fader));
-    });
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <!-- header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="photo.jpg" alt="Shop photo">
+        <div>
+          <h1>Maa Mauli CSC Pangam</h1>
+          <div style="color:rgba(255,255,255,0.9);font-size:13px">Sab kam hota hai — CSC & Services</div>
+        </div>
+      </div>
 
-  <header>Maa Mauli CSC Pangam</header>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="home" class="fade-in">
-    <h2>Welcome to Maa Mauli CSC Pangam</h2>
-    <p style="text-align:center; margin-top:10px;">
-      A trusted Common Service Center offering all digital and e-governance services under one roof.  
-      Fast • Reliable • Friendly Service 🌿
-    </p>
-  </section>
-
-  <section id="about" class="fade-in about">
-    <h2>About Us</h2>
-    <p>
-      Maa Mauli CSC Pangam ek trusted Common Service Center hai jo gaon ke logon ko 
-      online seva, form filling, Aadhaar, PAN, banking aur document service pradan karta hai.
-      Hamara lakshya har grahak ko fast aur reliable digital seva dena hai.
-    </p>
-  </section>
-
-  <section id="services" class="fade-in services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>✅ PAN Card Service</li>
-      <li>✅ Aadhaar Update</li>
-      <li>✅ Voter ID</li>
-      <li>✅ Certificate Print</li>
-      <li>✅ Online Form Fillup</li>
-      <li>✅ Xerox / Scanning / Printing</li>
-      <li>✅ Lamination</li>
-      <li>✅ Mobile Recharge & Bill Payment</li>
-    </ul>
-  </section>
-
-  <section id="gallery" class="fade-in">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="images/shop1.jpg" alt="CSC Center Image 1">
-      <img src="images/shop2.jpg" alt="CSC Center Image 2">
+      <div class="top-controls">
+        <nav><a href="#home">Home</a> <a href="#services">Services</a> <a href="#contact">Contact</a></nav>
+        <button id="themeToggle" class="mode-btn" title="Toggle light / dark">🌗 Dark</button>
+      </div>
     </div>
-    <p style="text-align:center; margin-top:10px;">(Yahan apne shop ke photos daal lena bhai)</p>
-  </section>
+  </header>
 
-  <section id="contact" class="fade-in contact">
-    <h2>Contact Us</h2>
-    <p><strong>📍 Address:</strong> Maa Mauli CSC, Pangam, Mathili, Malkangiri, Odisha</p>
-    <p><strong>📞 Phone:</strong> <a href="tel:9348643243">9348643243</a></p>
-    <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/919348643243?text=Hello%20Maa%20Mauli%20CSC%20Pangam">Click to Chat</a></p>
-  </section>
+  <!-- main -->
+  <main class="container" id="home">
+    <section class="hero">
+      <div class="hero-left animate__animated animate__fadeInLeft">
+        <h2>Professional CSC Services — Maa Mauli CSC Pangam</h2>
+        <p>Reliable CSC, form filling, printing, Aadhaar, PAN, government services, typing aur bahut kuch. Hum local community ke liye fast aur sasta service dete hain.</p>
+        <a class="btn" href="#contact">📞 Call Now — 9348643243</a>
 
-  <footer>
-    <p>© 2025 Maa Mauli CSC Pangam | All Rights Reserved</p>
-    <p>🎥 Visit our YouTube: <a href="https://youtube.com/@od30mkg?si=G-9J47ymhNvVmnxc" target="_blank">@od30mkg</a></p>
-  </footer>
+        <div class="cards">
+          <div class="card">
+            <h3>Government Services</h3>
+            <p>Aadhaar, PAN, certificate, Udyam registration, aur forms.</p>
+          </div>
+          <div class="card">
+            <h3>Printing & Scanning</h3>
+            <p>High quality prints, lamination, passport-size photos.</p>
+          </div>
+          <div class="card">
+            <h3>Digital Services</h3>
+            <p>Online form filling, digital payments setup, photocopy & typing.</p>
+          </div>
+        </div>
+      </div>
 
-  <a href="https://wa.me/919348643243?text=Hello%20Maa%20Mauli%20CSC%20Pangam" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
+      <!-- profile / slideshow -->
+      <div class="profile-photo animate__animated animate__fadeInRight" id="photoBox">
+        <img id="heroImage" src="photo.jpg" alt="Owner photo">
+      </div>
+    </section>
+
+    <!-- contact area -->
+    <section id="contact" style="margin-top:28px">
+      <h2 style="color:var(--accent2)">Contact Form</h2>
+      <p style="color:var(--muted)">Fill the form below — message directly aapke Gmail me aayega.</p>
+
+      <div class="contact-wrap">
+        <form action="https://formspree.io/f/mvgvwnrd" method="POST">
+          <label>Full Name:</label>
+          <input type="text" name="name" required>
+          <label>Email Address:</label>
+          <input type="email" name="_replyto" required>
+          <label>Phone Number:</label>
+          <input type="text" name="phone">
+          <label>Message:</label>
+          <textarea name="message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+
+        <div style="min-width:260px;flex:1;max-width:380px">
+          <div style="background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04)">
+            <h3 style="color:var(--accent)">Contact</h3>
+            <p style="color:var(--muted)">📞 9348643243<br/>📞 8984494894<br/>📍 Maa Mauli CSC Centre, Pangam, Malkangiri — 764087</p>
+            <a class="btn" href="tel:+919348643243" style="display:inline-block;margin-top:6px">Call Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- whatsapp floating button -->
+  <a class="whatsapp-btn" id="whatsBtn" href="https://wa.me/919348643243" target="_blank" title="Chat on WhatsApp">
+    💬
   </a>
 
+  <footer>
+    © <strong>Maa Mauli CSC Pangam</strong> — All Rights Reserved
+  </footer>
+
+  <!-- scripts -->
+  <script>
+    // 1) Theme toggle (light/dark) with localStorage
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('mm_theme');
+      if(saved === 'dark') {
+        document.documentElement.setAttribute('data-theme','dark');
+        btn.textContent = '☀️ Light';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        btn.textContent = '🌗 Dark';
+      }
+      btn.addEventListener('click', ()=>{
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if(isDark){
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('mm_theme','light');
+          btn.textContent = '🌗 Dark';
+        } else {
+          document.documentElement.setAttribute('data-theme','dark');
+          localStorage.setItem('mm_theme','dark');
+          btn.textContent = '☀️ Light';
+        }
+      });
+    })();
+
+    // 2) Simple slideshow logic (supports multiple images later)
+    (function(){
+      const images = ['photo.jpg']; // agar aage images add karoge toh yahan 'slide2.jpg','slide3.jpg' add kar dena
+      const imgEl = document.getElementById('heroImage');
+      let idx = 0;
+      if(images.length > 1){
+        setInterval(()=>{
+          idx = (idx + 1) % images.length;
+          imgEl.style.opacity = 0;
+          setTimeout(()=>{ imgEl.src = images[idx]; imgEl.style.opacity = 1; }, 400);
+        }, 5000);
+      } else {
+        // subtle slow zoom on single image
+        imgEl.style.transition = 'transform 12s ease';
+        setInterval(()=> {
+          imgEl.style.transform = imgEl.style.transform === 'scale(1.06)' ? 'scale(1)' : 'scale(1.06)';
+        }, 6500);
+      }
+    })();
+
+    // 3) Optional: small animation for whatsapp button on load
+    (function(){
+      const w = document.getElementById('whatsBtn');
+      w.style.transform = 'translateY(6px)';
+      setTimeout(()=> w.style.transform = 'translateY(0)', 400);
+    })();
+  </script>
 </body>
 </html>
