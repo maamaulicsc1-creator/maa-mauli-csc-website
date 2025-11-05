@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maa Mauli CSC Pangam — Digital Seva Kendra</title>
+  <meta name="description" content="Maa Mauli CSC Pangam - Digital Seva Kendra. Aadhaar, PAN, CM Kisan, Subhadra, Recharge, Print/Scan and Govt. services." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --csc-blue:#005BAA;
+      --csc-green:#00C4B3;
+    }
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+    .header-grad{background:linear-gradient(90deg,var(--csc-blue),var(--csc-green));}
+    .glass{background:rgba(255,255,255,0.6);backdrop-filter:blur(6px)}
+    .gradient-text{background:linear-gradient(90deg,var(--csc-blue),var(--csc-green));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .fade-enter{opacity:0}
+    .fade-enter-active{opacity:1;transition:opacity 800ms}
+    .slide-img{object-fit:cover;width:100%;height:420px}
+    @media (max-width:768px){.slide-img{height:220px}}
+    /* small shadow glow */
+    .text-glow{filter:drop-shadow(0 2px 6px rgba(0,0,0,0.25))}
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="header-grad text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-20 h-20 rounded-full overflow-hidden bg-white p-1 flex items-center justify-center">
+          <img src="logo.jpg" alt="Maa Mauli CSC Logo" style="height:72px;width:auto;display:block" />
+        </div>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-extrabold leading-tight text-white text-glow">Maa Mauli CSC Pangam</h1>
+          <div class="text-sm opacity-90 italic">Digital Seva Kendra</div>
+          <div class="text-sm mt-1"> <span class="font-medium">Lingaraj Khora</span> – <a href="tel:+919348643243" class="underline">9348643243</a></div>
+        </div>
+      </div>
+      <div class="ml-auto hidden md:flex items-center gap-3">
+        <a href="#contact" class="px-4 py-2 rounded bg-white text-[var(--csc-blue)] font-semibold">Contact</a>
+        <a href="https://wa.me/919348643243?text=Hello%20Maa%20Mauli%20CSC%20Pangam" target="_blank" class="px-4 py-2 rounded border border-white">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slideshow -->
+  <section class="max-w-6xl mx-auto px-4 mt-6">
+    <div class="relative rounded-lg overflow-hidden shadow">
+      <div id="slides" class="relative">
+        <img src="1.jpg" class="slide-img" data-index="0" />
+        <img src="2.jpg" class="slide-img absolute inset-0 opacity-0" data-index="1" />
+        <img src="3.jpg" class="slide-img absolute inset-0 opacity-0" data-index="2" />
+        <img src="4.jpeg" class="slide-img absolute inset-0 opacity-0" data-index="3" />
+      </div>
+
+      <!-- caption -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 bottom-6 bg-white/0 px-4 py-2 rounded w-full max-w-3xl text-center">
+        <div class="inline-block px-4 py-2 rounded-md" style="background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));backdrop-filter:blur(4px);">
+          <h2 class="text-lg md:text-2xl font-bold gradient-text">Welcome to Lingaraj Khora CSC Pangam</h2>
+        </div>
+      </div>
+
+      <!-- arrows -->
+      <button id="prev" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow">◀</button>
+      <button id="next" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow">▶</button>
+    </div>
+  </section>
+
+  <!-- Services banner -->
+  <section class="max-w-6xl mx-auto px-4 mt-6">
+    <div class="rounded-lg overflow-hidden">
+      <div class="w-full p-4 flex flex-wrap gap-3 items-center" style="background:linear-gradient(90deg,var(--csc-blue),var(--csc-green));color:white">
+        <div class="flex items-center gap-3">
+          <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 8H9L12 2Z" fill="white"/></svg>
+        </div>
+        <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Aadhaar</div>
+          <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M3 3h18v6H3V3z" stroke="white" stroke-width="2"/></svg> PAN</div>
+          <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7H9l3-7z" stroke="white" stroke-width="2"/></svg> CM Kisan</div>
+          <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4z" stroke="white" stroke-width="2"/></svg> Subhadra</div>
+          <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="white" stroke-width="2"/></svg> Recharge</div>
+          <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="white" stroke-width="2"/></svg> Print / Scan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="max-w-6xl mx-auto px-4 mt-6">
+    <h3 class="text-xl font-semibold">Gallery</h3>
+    <p class="text-sm text-gray-600 mt-1">Photos from Maa Mauli CSC Pangam</p>
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- 2x3 landscape grid - we show 4 images and 2 placeholders -->
+      <div class="col-span-2 md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4 md:col-start-1 md:col-end-4">
+        <div class="md:col-span-2 row-span-1">
+          <img src="1.jpg" alt="photo1" class="w-full h-48 md:h-64 object-cover rounded shadow" />
+        </div>
+        <div class="md:col-span-1">
+          <img src="2.jpg" alt="photo2" class="w-full h-48 md:h-64 object-cover rounded shadow" />
+        </div>
+        <div class="md:col-span-1">
+          <img src="3.jpg" alt="photo3" class="w-full h-48 md:h-64 object-cover rounded shadow" />
+        </div>
+        <div class="md:col-span-2">
+          <img src="4.jpeg" alt="photo4" class="w-full h-48 md:h-64 object-cover rounded shadow" />
+        </div>
+      </div>
+      <div class="hidden md:block"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact" class="max-w-6xl mx-auto px-4 mt-8 pb-12">
+    <div class="bg-white rounded shadow p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <h4 class="text-lg font-semibold">Contact & Address</h4>
+        <p class="mt-2 text-gray-700">At/Po-Pangam, Ps-Mathili, District-Malkangiri, Odisha-764044</p>
+        <p class="mt-2">Call / WhatsApp: <a href="tel:+919348643243" class="text-[var(--csc-blue)] font-medium">9348643243</a></p>
+        <div class="mt-4">
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=At%2FPo-Pangam%2C+Mathili%2C+Malkangiri%2C+Odisha%2C+764044" class="inline-block px-4 py-2 rounded bg-[var(--csc-blue)] text-white">Open in Maps</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold">Send us a message</h4>
+        <form id="contactForm" class="mt-3 space-y-3">
+          <input name="name" placeholder="Your name" class="w-full px-3 py-2 rounded border" />
+          <input name="phone" placeholder="Mobile" class="w-full px-3 py-2 rounded border" />
+          <textarea name="msg" placeholder="Message" class="w-full px-3 py-2 rounded border" rows="4"></textarea>
+          <div class="flex gap-2">
+            <button type="submit" class="px-4 py-2 rounded bg-[var(--csc-blue)] text-white">Send</button>
+            <a href="https://wa.me/919348643243?text=Hello%20Maa%20Mauli%20CSC%20Pangam" target="_blank" class="px-4 py-2 rounded border">WhatsApp</a>
+          </div>
+          <p id="contactMsg" class="text-sm text-green-600 hidden">Message sent. We'll reply on WhatsApp soon.</p>
+        </form>
+      </div>
+    </div>
+    <div class="text-xs text-gray-500 mt-4">© <span id="year"></span> Maa Mauli CSC Pangam — Digital Seva Kendra</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Slideshow logic
+    (function(){
+      const slides = Array.from(document.querySelectorAll('#slides img'));
+      let idx = 0; let timer = null; const delay = 10000; // 10 sec
+      slides.forEach((s,i)=>{ if(i!==0) s.style.opacity=0; else s.style.opacity=1; s.style.position = i===0? 'relative' : 'absolute'; s.style.left='0'; s.style.top='0'; s.style.width='100%'; });
+      function show(n){ slides.forEach((s,i)=>{ s.style.transition='opacity 1s'; s.style.opacity = i===n? '1' : '0'; }); idx=n; }
+      function next(){ show((idx+1) % slides.length); }
+      function prev(){ show((idx-1+slides.length) % slides.length); }
+      document.getElementById('next').addEventListener('click', ()=>{ next(); resetTimer(); });
+      document.getElementById('prev').addEventListener('click', ()=>{ prev(); resetTimer(); });
+      function startTimer(){ timer = setInterval(next, delay); }
+      function resetTimer(){ clearInterval(timer); startTimer(); }
+      startTimer();
+    })();
+
+    // Contact form demo
+    document.getElementById('contactForm') && document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault(); document.getElementById('contactMsg').classList.remove('hidden'); this.reset();
+    });
+  </script>
+</body>
+</html>
