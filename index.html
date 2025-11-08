@@ -108,8 +108,75 @@
     </footer>
   </div>
 </style>
+<!-- Floating Action Buttons -->
+<a href="https://wa.me/919348643243?text=Hello%20MAA%20MAULI%20CSC%20PANGAM" 
+   class="fab whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<a href="tel:9348643243" class="fab call" aria-label="Call Now">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Phone_icon.svg" alt="Call Now">
+</a>
+
+<style>
+/* Floating Buttons Base */
+.fab {
+  position: fixed;
+  right: 20px;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* WhatsApp Button */
+.fab.whatsapp {
+  bottom: 20px;
+  background-color: #25D366;
+}
+
+/* Call Button */
+.fab.call {
+  bottom: 85px;
+  background-color: #007bff;
+}
+
+/* Icons */
+.fab img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .fab {
+    right: 15px;
+    padding: 10px;
+  }
+  .fab img {
+    width: 34px;
+    height: 34px;
+  }
+  .fab.call {
+    bottom: 80px;
+  }
+  .fab.whatsapp {
+    bottom: 15px;
+  }
+}
+</style>
 </body>
 </html>
+
 
 
 
