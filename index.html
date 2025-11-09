@@ -94,6 +94,46 @@
         <div class="product"><h3>Printing / Photocopy / Scanning / Lamination</h3><p>Sabhi document printing aur lamination seva uplabdh.</p></div>
       </div>
     </section>
+<!-- Free Contact Form (via FormSubmit) -->
+<section id="contact-form" style="margin-top:40px; text-align:center;">
+  <h2>Send Us a Message</h2>
+  <p style="color:#555;">Fill out the form below and we’ll get back to you soon.</p>
+
+  <form action="https://formsubmit.co/maamaulicsc1@gmail.com" method="POST" style="max-width:400px; margin:auto; text-align:left;">
+
+    <!-- Disable Captcha -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Redirect after submit -->
+    <input type="hidden" name="_next" value="https://maamaulicsc1-creator.github.io/maa-mauli-csc-website/">
+
+    <!-- Name -->
+    <label style="font-weight:bold;">Your Name:</label>
+    <input type="text" name="name" required 
+           style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc;">
+
+    <!-- Email -->
+    <label style="font-weight:bold;">Email Address:</label>
+    <input type="email" name="email" required 
+           style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc;">
+
+    <!-- Contact -->
+    <label style="font-weight:bold;">Contact Number:</label>
+    <input type="text" name="contact" required 
+           style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc;">
+
+    <!-- Message -->
+    <label style="font-weight:bold;">Message:</label>
+    <textarea name="message" required rows="4" 
+              style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc;"></textarea>
+
+    <!-- Submit Button -->
+    <button type="submit" 
+            style="background-color:#0ea5a4; color:white; border:none; padding:10px 20px; border-radius:6px; font-weight:bold; cursor:pointer; width:100%;">
+      Send Message
+    </button>
+  </form>
+</section>
 
     <section id="contact" style="margin-top:20px">
       <h2>Contact / Visit</h2>
@@ -107,5 +147,49 @@
       © 2025 MAA MAULI CSC PANGAM — All Rights Reserved
     </footer>
   </div>
+<!-- Floating WhatsApp Chat Button -->
+<a href="https://wa.me/919348643243?text=Hello%20MAA%20MAULI%20CSC%20PANGAM"
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+</a>
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.whatsapp-icon {
+  width: 42px;
+  height: 42px;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px;
+  }
+  .whatsapp-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+</style>
 </body>
 </html>
+
